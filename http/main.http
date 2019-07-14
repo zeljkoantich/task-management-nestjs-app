@@ -22,4 +22,24 @@ GET http://localhost:3000/tasks
 # []
 
 
-###
+### POST /tasks
+POST http://localhost:3000/tasks
+Content-Type: application/json
+Accept: application/json
+
+{"title": "some title task 1", "description": "task 1 description"}
+
+# HTTP/1.1 201 Created
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 124
+# ETag: W/"7c-0Jp3b84pl9EO4OVy+W3c4GvDzp0"
+# Date: Sun, 14 Jul 2019 15:31:29 GMT
+# Connection: close
+
+# {
+#   "description": "task 1 description",
+#   "title": "some title task 1",
+#   "id": "73934f30-a64c-11e9-accb-b7a5975ab41c",
+#   "status": "OPEN"
+# }
