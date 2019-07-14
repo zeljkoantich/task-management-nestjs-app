@@ -1,4 +1,5 @@
-GET http://localhost:3000
+
+# GET http://localhost:3000
 # HTTP/1.1 200 OK
 # X-Powered-By: Express
 # Content-Type: text/html; charset=utf-8
@@ -9,6 +10,10 @@ GET http://localhost:3000
 
 # Hello World!
 
+
+//
+// GET ALL TASKS
+//
 ### GET /tasks
 GET http://localhost:3000/tasks
 # HTTP/1.1 200 OK
@@ -22,6 +27,9 @@ GET http://localhost:3000/tasks
 # []
 
 
+//
+// GET A TASK BY ID
+//
 ### GET /tasks/id
 GET http://localhost:3000/tasks/d82afa70-a65f-11e9-bf33-1ba7ec4a593a
 
@@ -41,14 +49,24 @@ GET http://localhost:3000/tasks/d82afa70-a65f-11e9-bf33-1ba7ec4a593a
 # }
 
 
+//
+// DELETE A TASK
+//
+### DELETE /tasks
+DELETE  http://localhost:3000/tasks/7ae2fc60-a663-11e9-80eb-47d2a42649d3
 
 
+
+
+//
+// CREATE A TASK
+//
 ### POST /tasks
 POST http://localhost:3000/tasks
 Content-Type: application/json
 Accept: application/json
 
-{"title": "some title task 4", "description": "task 4 description"}
+{"title": "some title task 11", "description": "task 11 description"}
 
 # HTTP/1.1 201 Created
 # X-Powered-By: Express
