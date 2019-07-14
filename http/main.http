@@ -1,0 +1,25 @@
+GET http://localhost:3000
+# HTTP/1.1 200 OK
+# X-Powered-By: Express
+# Content-Type: text/html; charset=utf-8
+# Content-Length: 12
+# ETag: W/"c-Lve95gjOVATpfV8EL5X4nxwjKHE"
+# Date: Sun, 14 Jul 2019 13:38:41 GMT
+# Connection: close
+
+# Hello World!
+
+### GET /tasks
+GET http://localhost:3000/tasks
+# HTTP/1.1 200 OK
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 2
+# ETag: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+# Date: Sun, 14 Jul 2019 13:41:48 GMT
+# Connection: close
+
+# []
+
+
+###
