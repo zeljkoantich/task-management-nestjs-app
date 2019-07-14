@@ -98,3 +98,41 @@
 ----------------------------------------------------------------------------
 
 ```
+
+<br>
+
+## NestJS CLI - create app
+
+    nest new task-managment
+    🚀  Successfully created project task-managment
+    👉  Get started with the following commands:
+
+    $ cd task-managment
+    $ npm run start
+
+
+- Running the app
+
+  ```bash
+  # development
+  $ npm run start
+
+  # watch mode
+  $ npm run start:dev
+
+  # production mode
+  $ npm run start:prod
+  ```
+
+- Test
+
+  ```bash
+  # unit tests
+  $ npm run test
+
+  # e2e tests
+  $ npm run test:e2e
+
+  # test coverage
+  $ npm run test:cov
+  ```
