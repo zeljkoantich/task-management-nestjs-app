@@ -1,0 +1,22 @@
+# POST 3 tasks to '/tasks'
+# GET '/tasks'
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 352
+ETag: W/"160-mTpYQx/foOzofYpSsmMJhFmH4qk"
+Date: Sun, 14 Jul 2019 15:50:50 GMT
+Connection: close
+
+[
+  {
+    "description":"task 1 description","title":"some title task 1","id":"176ce330-a64f-11e9-b3dd-d16a1f27b6d5","status":"OPEN"
+  },
+
+  {"description":"task 2","title":"some title task 2","id":"1efdd690-a64f-11e9-b3dd-d16a1f27b6d5","status":"OPEN"
+  },
+
+  {"description":"task 3","title":"some title task 3","id":"25aea320-a64f-11e9-b3dd-d16a1f27b6d5","status":"OPEN"
+  }
+]
