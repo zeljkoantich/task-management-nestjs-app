@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Body } from "@nestjs/common";
 import { TasksService } from "./tasks.service";
-import { promisify } from "util";
 
 @Controller({
   path: "tasks"
