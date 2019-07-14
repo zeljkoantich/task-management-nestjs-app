@@ -1,5 +1,5 @@
 import { Injectable, Scope } from "@nestjs/common";
-import { ITaskModel, TaskStatuses } from "./task.model";
+import { ITaskModel, TaskStatuses } from "./models/task.model";
 import * as uuid from "uuid/v1";
 
 @Injectable({
