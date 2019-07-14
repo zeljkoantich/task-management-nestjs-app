@@ -1,11 +1,12 @@
 import { Injectable, Scope } from "@nestjs/common";
+import { ITaskModel } from "./task.model";
 
 @Injectable({
   scope: Scope.DEFAULT
 })
 export class TasksService {
 
-  private taskList: any[] = [];
+  private taskList: ITaskModel[] = [];
 
   constructor() { }
 
