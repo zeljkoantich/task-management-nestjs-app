@@ -53,7 +53,8 @@
     "promise-function-async": true,
     "radix": true,
     "semicolon": true,
-    "triple-equals": true
+    "triple-equals": true,
+    "trailing-comma": false
   },
   "rulesDirectory": []
 }

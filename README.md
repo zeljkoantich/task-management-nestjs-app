@@ -103,11 +103,11 @@
 
 ## NestJS CLI - create app
 
-    nest new task-managment
-    🚀  Successfully created project task-managment
+    nest new task-management
+    🚀  Successfully created project task-management
     👉  Get started with the following commands:
 
-    $ cd task-managment
+    $ cd task-management
     $ npm run start
 
 
