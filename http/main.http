@@ -28,6 +28,18 @@ GET http://localhost:3000/tasks
 
 
 //
+// GET (@Query tasks) ALL TASKS by search string
+//
+// @body GetTasksFilterDTO
+### GET /tasks
+# GET http://localhost:3000/tasks?search=task---
+GET http://localhost:3000/tasks?search=888&status=OPEN
+# GET http://localhost:3000/tasks?search=foo--
+# GET http://localhost:3000/tasks?status=CLOSED
+# GET http://localhost:3000/tasks?search=task---&status=OPEN
+
+
+//
 // GET A TASK BY ID
 //
 ### GET /tasks/id
@@ -57,7 +69,7 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 Accept: application/json
 
-{"title": "some title task 33", "description": "task 33 description"}
+{"title": "some title foo-- task 11", "description": "task 11 description"}
 
 # HTTP/1.1 201 Created
 # X-Powered-By: Express
@@ -79,8 +91,8 @@ Accept: application/json
 //
 // UPDATE TASK STATUS
 //
-### PATCH /tasks/id
-PATCH http://localhost:3000/tasks/25276c40-a7c4-11e9-85d1-c728967e4ccb/status
+### PATCH /tasks/id/status
+PATCH http://localhost:3000/tasks/1b423130-a7db-11e9-a9d4-0f180e551d28/status
 Content-Type: application/json
 
 { "status": "CLOSED" }
@@ -105,4 +117,4 @@ Content-Type: application/json
 // DELETE A TASK
 //
 ### DELETE /tasks
-DELETE  http://localhost:3000/tasks/7ae2fc60-a663-11e9-80eb-47d2a42649d3
+DELETE  http://localhost:3000/tasks/d1be75a0-a7da-11e9-a9d4-0f180e551d28

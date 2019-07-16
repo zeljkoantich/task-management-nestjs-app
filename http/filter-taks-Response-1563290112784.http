@@ -1,0 +1,52 @@
+# ALL TASKS GET http://localhost:3000/tasks
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 539
+ETag: W/"21b-TSfNshYe6WlnXz+kM9eUIlUgNWA"
+Date: Tue, 16 Jul 2019 15:16:33 GMT
+Connection: close
+
+[
+  {
+    "description": "task 8888 description",
+    "title": "some title foo-- task 8888",
+    "id": "184e2910-a7dc-11e9-b78c-17a6a929a466",
+    "status": "OPEN"
+  },
+  {
+    "description": "task 888 description",
+    "title": "some title foo-- task 888",
+    "id": "1bc8d0e0-a7dc-11e9-b78c-17a6a929a466",
+    "status": "OPEN"
+  },
+  {
+    "description": "task 88 description",
+    "title": "some title foo-- task 88",
+    "id": "1f976510-a7dc-11e9-b78c-17a6a929a466",
+    "status": "OPEN"
+  },
+  {
+    "description": "task 11 description",
+    "title": "some title foo-- task 11",
+    "id": "229c67b0-a7dc-11e9-b78c-17a6a929a466",
+    "status": "OPEN"
+  }
+]
+
+
+# FILTER TASKS GET http://localhost:3000/tasks?search=888&status=OPEN
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 273
+ETag: W/"111-HU3rKubttSG9XN0RGSLiPvdtm3s"
+Date: Tue, 16 Jul 2019 15:15:02 GMT
+Connection: close
+
+[
+  {"description":"task 8888 description","title":"some title foo-- task 8888","id":"184e2910-a7dc-11e9-b78c-17a6a929a466","status":"OPEN"
+  },
+  {"description":"task 888 description","title":"some title foo-- task 888","id":"1bc8d0e0-a7dc-11e9-b78c-17a6a929a466","status":"OPEN"
+  }
+]
