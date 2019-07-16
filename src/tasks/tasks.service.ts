@@ -33,6 +33,19 @@ export class TasksService {
     return task;
   }
 
+  updateTaskStatus(id: string, status: TaskStatuses) {
+    let updatedTask: ITaskModel;
+    this.taskList.forEach((task, index) => {
+      if ( task.id === id ) {
+        this.taskList[index].status = status;
+        updatedTask = this.taskList[index];
+        return;
+      }
+    });
+
+    return updatedTask;
+  }
+
   deleteTask(id: string): void {
     this.taskList = [ ...this.taskList.filter(task => task.id !== id) ];
   }
