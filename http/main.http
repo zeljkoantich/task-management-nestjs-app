@@ -33,9 +33,9 @@ GET http://localhost:3000/tasks
 // @body GetTasksFilterDTO
 ### GET /tasks
 # GET http://localhost:3000/tasks?search=task---
-GET http://localhost:3000/tasks?search=foo&status=OPEN
+# GET http://localhost:3000/tasks?search=foo&status=OPEN
 # GET http://localhost:3000/tasks?search=foo--
-# GET http://localhost:3000/tasks?status=CLOSED
+GET http://localhost:3000/tasks?status=CLOSED
 # GET http://localhost:3000/tasks?search=task---&status=OPEN
 
 
@@ -43,7 +43,7 @@ GET http://localhost:3000/tasks?search=foo&status=OPEN
 // GET A TASK BY ID
 //
 ### GET /tasks/id
-GET http://localhost:3000/tasks/94df7a50-a873-11e9-822c-3ffb140ed45ds
+GET http://localhost:3000/tasks/c430c330-a879-11e9-a83f-2f717802ed7ed
 
 # HTTP/1.1 200 OK
 # X-Powered-By: Express
@@ -69,7 +69,7 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 Accept: application/json
 
-{"title": "some title baz-- task 111", "description": "task 111 description"}
+{"title": "some title baz-- task 444", "description": "task 444 description"}
 
 # HTTP/1.1 201 Created
 # X-Powered-By: Express
@@ -92,10 +92,10 @@ Accept: application/json
 // UPDATE TASK STATUS
 //
 ### PATCH /tasks/id/status
-PATCH http://localhost:3000/tasks/1b423130-a7db-11e9-a9d4-0f180e551d28/status
+PATCH http://localhost:3000/tasks/e2a6eb50-a879-11e9-a83f-2f717802ed7ed/status
 Content-Type: application/json
 
-{ "status": "CLOSED" }
+{ "status": "OPEN" }
 
 # HTTP/1.1 200 OK
 # X-Powered-By: Express

@@ -33,12 +33,23 @@ export class TasksService {
   }
 
   getTask(id: string) {
-    const task = this.taskList.find(_task => _task.id === id);
+    const task = this.taskList.find(task_ => task_.id === id);
     if (task) {
       return task;
     }
 
     throw new NotFoundException(`Task with id: ${id} not found`);
+  }
+
+  private getTaskIndex(id: string) {
+    let index: number;
+    this.taskList.find((task, index_) => {
+      if (task.id === id) {
+        index = index_;
+      }
+    });
+
+    return index;
   }
 
   createTask(createTaskDTO: CreateTaskDTO): ITaskModel {
@@ -55,16 +66,11 @@ export class TasksService {
   }
 
   updateTaskStatus(id: string, status: TaskStatuses) {
-    let updatedTask: ITaskModel;
-    this.taskList.forEach((task, index) => {
-      if ( task.id === id ) {
-        this.taskList[index].status = status;
-        updatedTask = this.taskList[index];
-        return;
-      }
-    });
+    const task = this.getTask(id); // throws NotFoundException if no task
+    task.status = status;
+    this.taskList[this.getTaskIndex(task.id)] = task; // update task list
 
-    return updatedTask;
+    return task;
   }
 
   deleteTask(id: string): void {
