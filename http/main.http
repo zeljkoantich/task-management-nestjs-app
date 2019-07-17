@@ -95,7 +95,7 @@ Accept: application/json
 PATCH http://localhost:3000/tasks/e2a6eb50-a879-11e9-a83f-2f717802ed7ed/status
 Content-Type: application/json
 
-{ "status": "OPEN" }
+{ "status": "CLOSEd" }
 
 # HTTP/1.1 200 OK
 # X-Powered-By: Express

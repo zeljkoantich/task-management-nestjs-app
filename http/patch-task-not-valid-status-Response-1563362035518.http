@@ -1,0 +1,19 @@
+### PATCH /tasks/id/status
+# PATCH http://localhost:3000/tasks/e2a6eb50-a879-11e9-a83f-2f717802ed7ed/status
+# Content-Type: application/json
+
+# { "status": "CLOSEd" }
+
+HTTP/1.1 406 Not Acceptable
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+ETag: W/"48-A1ktWzEOoVSuMLx//x6L/omxEg4"
+Date: Wed, 17 Jul 2019 11:13:21 GMT
+Connection: close
+
+{
+  "statusCode":406,
+  "error":"Not Acceptable",
+  "message":"Status CLOSEd is not a valid status"
+}
