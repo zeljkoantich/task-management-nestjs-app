@@ -33,7 +33,7 @@ GET http://localhost:3000/tasks
 // @body GetTasksFilterDTO
 ### GET /tasks
 # GET http://localhost:3000/tasks?search=task---
-GET http://localhost:3000/tasks?search=888&status=OPEN
+GET http://localhost:3000/tasks?search=foo&status=OPEN
 # GET http://localhost:3000/tasks?search=foo--
 # GET http://localhost:3000/tasks?status=CLOSED
 # GET http://localhost:3000/tasks?search=task---&status=OPEN
@@ -69,7 +69,7 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 Accept: application/json
 
-{"title": "some title foo-- task 11", "description": "task 11 description"}
+# {"title": "some title baz-- task 222", "description": "task 222 description"}
 
 # HTTP/1.1 201 Created
 # X-Powered-By: Express

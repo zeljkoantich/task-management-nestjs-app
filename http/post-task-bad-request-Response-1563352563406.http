@@ -1,0 +1,35 @@
+
+# POST http://localhost:3000/tasks
+# Content-Type: application/json
+# Accept: application/json
+
+# {"title": "some title baz-- task 222", "description": "task 222 description"}
+
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 272
+ETag: W/"110-K8VTr5k5SFaN1Upyoz/OfDd8Mvw"
+Date: Wed, 17 Jul 2019 08:35:49 GMT
+Connection: close
+
+{
+  "statusCode":400,
+  "error":"Bad Request",
+  "message":[
+    {
+      "target":{},
+      "property":"title",
+      "children":[],
+      "constraints":{
+        "isNotEmpty":"title should not be empty"}
+      },
+    {
+      "target":{},
+      "property":"description",
+      "children":[],
+      "constraints":{
+        "isNotEmpty":"description should not be empty"}
+    }
+  ]
+}
