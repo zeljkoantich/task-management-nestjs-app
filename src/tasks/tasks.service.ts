@@ -66,7 +66,7 @@ export class TasksService {
   }
 
   updateTaskStatus(id: string, status: TaskStatuses) {
-    const task = this.getTask(id); // throws NotFoundException if no task
+    const task = this.getTask(id); // throws NotFoundException if no task to update
     task.status = status;
     this.taskList[this.getTaskIndex(task.id)] = task; // update task list
 
@@ -74,7 +74,9 @@ export class TasksService {
   }
 
   deleteTask(id: string): void {
-    this.taskList = [ ...this.taskList.filter(task => task.id !== id) ];
+    const task = this.getTask(id); // throws NotFoundException if no task to delete
+    const taskIndex = this.getTaskIndex[task.id];
+    this.taskList.splice(taskIndex, 1); // remove deleted item from task list
   }
 
 }
