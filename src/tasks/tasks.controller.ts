@@ -3,6 +3,7 @@ import { TasksService } from "./tasks.service";
 import { CreateTaskDTO } from "./dto/create-task.dto";
 import { TaskStatuses } from "./models/task.model";
 import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
+import { objectHasKeys } from "../shared/helper-functions";
 
 @Controller({
   path: "tasks"
@@ -17,8 +18,7 @@ export class TasksController {
   getTasks(
     @Query() getTasksFilterDTO: GetTasksFilterDTO
   ) {
-    const hasQuery = Boolean(Object.keys(getTasksFilterDTO).length);
-    if (hasQuery) {
+    if (objectHasKeys(getTasksFilterDTO)) {
       return this.tasksService.getFilerTasks(getTasksFilterDTO);
     }
 
