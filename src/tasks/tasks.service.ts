@@ -38,7 +38,7 @@ export class TasksService {
       return task;
     }
 
-    throw new NotFoundException("Task does not exists");
+    throw new NotFoundException(`Task with id: ${id} not found`);
   }
 
   createTask(createTaskDTO: CreateTaskDTO): ITaskModel {
