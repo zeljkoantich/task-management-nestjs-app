@@ -19,7 +19,7 @@ export class TasksController {
     @Query() getTasksFilterDTO: GetTasksFilterDTO
   ) {
     if (objectHasKeys(getTasksFilterDTO)) {
-      return this.tasksService.getFilerTasks(getTasksFilterDTO);
+      return this.tasksService.getFilteredTasks(getTasksFilterDTO);
     }
 
     return this.tasksService.getTasks();

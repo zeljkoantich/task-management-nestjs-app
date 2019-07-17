@@ -17,7 +17,7 @@ export class TasksService {
     return this.taskList;
   }
 
-  getFilerTasks(getTasksFilterDTO: GetTasksFilterDTO) {
+  getFilteredTasks(getTasksFilterDTO: GetTasksFilterDTO) {
     const { search, status } = getTasksFilterDTO;
     let tasks = [ ...this.getTasks() ];
 
