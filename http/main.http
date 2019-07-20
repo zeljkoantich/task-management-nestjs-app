@@ -34,8 +34,8 @@ GET http://localhost:3000/tasks
 ### GET /tasks
 # GET http://localhost:3000/tasks?search=task---
 # GET http://localhost:3000/tasks?search=foo&status=OPEN
-# GET http://localhost:3000/tasks?search=foo--
-GET http://localhost:3000/tasks?status=CLOSED
+# GET http://localhost:3000/tasks?search=
+GET http://localhost:3000/tasks?status=CLOSEDd
 # GET http://localhost:3000/tasks?search=task---&status=OPEN
 
 
@@ -92,7 +92,7 @@ Accept: application/json
 // UPDATE TASK STATUS
 //
 ### PATCH /tasks/id/status
-PATCH http://localhost:3000/tasks/e2a6eb50-a879-11e9-a83f-2f717802ed7ed/status
+PATCH http://localhost:3000/tasks/02fcfd30-aace-11e9-8e75-a547b78d0f13/status
 Content-Type: application/json
 
 { "status": "CLOSEd" }

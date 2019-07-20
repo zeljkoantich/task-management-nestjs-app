@@ -17,7 +17,7 @@ export class TasksController {
 
   @Get()
   getTasks(
-    @Query() getTasksFilterDTO: GetTasksFilterDTO
+    @Query(ValidationPipe) getTasksFilterDTO: GetTasksFilterDTO
   ) {
     if (objectHasKeys(getTasksFilterDTO)) {
       return this.tasksService.getFilteredTasks(getTasksFilterDTO);

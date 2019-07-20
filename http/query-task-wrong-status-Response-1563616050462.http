@@ -1,0 +1,27 @@
+# GET http://localhost:3000/tasks?status=CLOSEDd
+
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 234
+ETag: W/"ea-L+XAjCsTTQvVUdBv7MfaYvs1lUQ"
+Date: Sat, 20 Jul 2019 09:42:31 GMT
+Connection: close
+
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": [
+    {
+      "target": {
+        "status": "CLOSEDd"
+      },
+      "value": "CLOSEDd",
+      "property": "status",
+      "children": [],
+      "constraints": {
+        "isIn": "status must be one of the following values: OPEN,CLOSED,DONE,IN_PROGRESS"
+      }
+    }
+  ]
+}
