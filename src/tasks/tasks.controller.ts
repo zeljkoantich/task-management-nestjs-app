@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param, Delete, Patch, Query, UsePipes, ValidationPipe } from "@nestjs/common";
 import { TasksService } from "./tasks.service";
 import { CreateTaskDTO } from "./dto/create-task.dto";
-import { TaskStatuses } from "./models/task.model";
+import { TaskStatuses } from "./task-statuses.enum";
 import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
 import { objectHasKeys } from "../shared/helper-functions";
 import { TaskStatusValidationPipe } from "./pipes/task-status-validation.pipe";

@@ -1,13 +1,8 @@
+import { TaskStatuses } from "../task-statuses.enum";
+
 export interface ITaskModel {
   id: string;
   title: string;
   description: string;
   status: TaskStatuses;
-}
-
-export enum TaskStatuses {
-  OPEN = "OPEN",
-  CLOSED = "CLOSED",
-  DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS"
 }

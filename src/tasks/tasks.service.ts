@@ -1,8 +1,9 @@
 import { Injectable, Scope, NotFoundException } from "@nestjs/common";
-import { ITaskModel, TaskStatuses } from "./models/task.model";
+import { ITaskModel } from "./models/task.model";
 import * as uuid from "uuid/v1";
 import { CreateTaskDTO } from "./dto/create-task.dto";
 import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
+import { TaskStatuses } from "./task-statuses.enum";
 
 @Injectable({
   scope: Scope.DEFAULT
