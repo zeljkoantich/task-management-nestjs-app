@@ -8,5 +8,6 @@ export interface ITaskModel {
 export enum TaskStatuses {
   OPEN = "OPEN",
   CLOSED = "CLOSED",
-  DONE = "DONE"
+  DONE = "DONE",
+  IN_PROGRESS = "IN_PROGRESS"
 }
