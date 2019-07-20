@@ -43,9 +43,16 @@ export class TasksService {
 
   private getTaskIndex(id: string) {
     let index: number;
-    this.taskList.find((task, index_) => {
+    this.taskList.find((task, index_): boolean => {
       if (task.id === id) {
         index = index_;
+        return true; // callback return a boolean: src/tasks/tasks.service.ts(49,24): error TS2345
+        /*
+         Argument of type '(this: void, task: ITaskModel, index_: number) => void' is not
+         assignable to parameter of type '(value: ITaskModel, index: number, obj: ITaskModel[]) =>
+         boolean'.
+         Type 'void' is not assignable to type 'boolean'.
+        */
       }
     });
 
