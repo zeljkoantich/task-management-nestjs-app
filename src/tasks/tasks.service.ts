@@ -13,33 +13,14 @@ import { of } from "rxjs";
 })
 export class TasksService {
 
-  // private taskList: ITaskModel[] = [];
-
   constructor(
     @InjectRepository(TaskRepository)
     private taskRepository: TaskRepository
   ) { }
 
-  async getTasks() {
-    const taskList = await this.taskRepository.find();
-    console.log('taskList', taskList);
-    // return this.taskList;
+  async getTasks(getTasksFilterDTO: GetTasksFilterDTO): Promise<Task[]> {
+    return this.taskRepository.getTasks(getTasksFilterDTO);
   }
-
-  // getFilteredTasks(getTasksFilterDTO: GetTasksFilterDTO) {
-  //   const { search, status } = getTasksFilterDTO;
-  //   let tasks = [ ...this.getTasks() ];
-
-  //   if (status) {
-  //     tasks = tasks.filter(task => task.status === status);
-  //   }
-
-  //   if (search) {
-  //     tasks = tasks.filter(task => task.title.includes(search)); // filter tasks by title
-  //   }
-
-  //   return tasks;
-  // }
 
   async getTask(id: number): Promise<Task> {
     const task = await this.taskRepository.findOne(id);
@@ -49,24 +30,6 @@ export class TasksService {
 
     throw new NotFoundException(`Task with id: ${id} not found`);
   }
-
-  // private getTaskIndex(id: string) {
-  //   let index: number;
-  //   this.taskList.find((task, index_): boolean => {
-  //     if (task.id === id) {
-  //       index = index_;
-  //       return true; // callback return a boolean: src/tasks/tasks.service.ts(49,24): error TS2345
-  //       /*
-  //        Argument of type '(this: void, task: ITaskModel, index_: number) => void' is not
-  //        assignable to parameter of type '(value: ITaskModel, index: number, obj: ITaskModel[]) =>
-  //        boolean'.
-  //        Type 'void' is not assignable to type 'boolean'.
-  //       */
-  //     }
-  //   });
-
-  //   return index;
-  // }
 
   async createTask(createTaskDTO: CreateTaskDTO): Promise<Task> {
     return this.taskRepository.createTask(createTaskDTO);

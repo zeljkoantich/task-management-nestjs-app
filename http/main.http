@@ -34,9 +34,9 @@ GET http://localhost:3000/tasks
 ### GET /tasks
 # GET http://localhost:3000/tasks?search=task---
 # GET http://localhost:3000/tasks?search=foo&status=OPEN
-# GET http://localhost:3000/tasks?search=
-GET http://localhost:3000/tasks?status=CLOSEDd
-# GET http://localhost:3000/tasks?search=task---&status=OPEN
+# GET http://localhost:3000/tasks?search=be
+# GET http://localhost:3000/tasks?status=CLOSED
+GET http://localhost:3000/tasks?search=some&status=OPEN
 
 
 //
@@ -69,7 +69,7 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 Accept: application/json
 
-{"title": "Find stuff ...", "description": "ddd text ..."}
+{"title": "Find st some uff ...", "description": "ssddd text ..."}
 
 # HTTP/1.1 201 Created
 # X-Powered-By: Express

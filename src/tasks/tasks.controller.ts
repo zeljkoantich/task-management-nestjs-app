@@ -1,9 +1,11 @@
-import { Controller, Get, Post, Body, Param, Delete, Patch, Query, UsePipes, ValidationPipe, ParseIntPipe } from "@nestjs/common";
+import {
+  Controller, Get, Post, Body, Param, Delete, Patch,
+  Query, UsePipes, ValidationPipe, ParseIntPipe
+} from "@nestjs/common";
 import { TasksService } from "./tasks.service";
 import { CreateTaskDTO } from "./dto/create-task.dto";
 import { TaskStatuses } from "./task-statuses.enum";
 import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
-import { objectHasKeys } from "../shared/helper-functions";
 import { TaskStatusValidationPipe } from "./pipes/task-status-validation.pipe";
 import { Task } from "./task.entity";
 import { DeleteResult } from "typeorm";
@@ -17,18 +19,12 @@ export class TasksController {
     private tasksService: TasksService
   ) { }
 
-  // @Get()
-  // getTasks(
-  //   @Query(ValidationPipe) getTasksFilterDTO: GetTasksFilterDTO
-  // ) {
-  //   if (objectHasKeys(getTasksFilterDTO)) {
-  //     // return this.tasksService.getFilteredTasks(getTasksFilterDTO);
-  //     return this.tasksService.getTasks();
-
-  //   }
-
-  //   return this.tasksService.getTasks();
-  // }
+  @Get()
+  async getTasks(
+    @Query(ValidationPipe) getTasksFilterDTO: GetTasksFilterDTO
+  ) {
+    return this.tasksService.getTasks(getTasksFilterDTO);
+  }
 
   @Get("/:id")
   async getTask(

@@ -1,0 +1,64 @@
+# GET http://localhost:3000/tasks?search=some&status=OPEN
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 167
+ETag: W/"a7-HQVDcQD+XPH1yCuhL3ohbIYvaWQ"
+Date: Wed, 24 Jul 2019 15:29:32 GMT
+Connection: close
+
+[
+  {
+    "id": 1,
+    "title": "some title baz",
+    "description": "task ddd baz",
+    "status": "OPEN"
+  },
+  {
+    "id": 8,
+    "title": "Find st some uff ...",
+    "description": "ssddd text ...",
+    "status": "OPEN"
+  }
+]
+
+
+###### ALL TASKS ######
+# GET http://localhost:3000/tasks
+
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 353
+ETag: W/"161-w2xwx+Z1EXIYaWqbcD5mhRR5kBY"
+Date: Wed, 24 Jul 2019 15:30:56 GMT
+Connection: close
+
+[
+  {
+    "id": 1,
+    "title": "some title baz",
+    "description": "task ddd baz",
+    "status": "OPEN"
+  },
+  {
+    "id": 5,
+    "title": "Should be id: 5",
+    "description": "because task id: 4 is deleted",
+    "status": "CLOSED"
+  },
+  {
+    "id": 3,
+    "title": "this should be id: 3",
+    "description": "ddd ddd",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "id": 8,
+    "title": "Find st some uff ...",
+    "description": "ssddd text ...",
+    "status": "OPEN"
+  }
+]
