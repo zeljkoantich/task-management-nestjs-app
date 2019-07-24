@@ -1,9 +1,13 @@
 import { Injectable, Scope, NotFoundException } from "@nestjs/common";
-import { ITaskModel } from "./models/task.model";
+// import { ITaskModel } from "./models/task.model";
 import * as uuid from "uuid/v1";
 import { CreateTaskDTO } from "./dto/create-task.dto";
 import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
 import { TaskStatuses } from "./task-statuses.enum";
+import { TaskRepository } from "./task.repository";
+import { InjectRepository } from "@nestjs/typeorm";
+import { async } from "rxjs/internal/scheduler/async";
+import { TaskEntity } from "./task.entity";
 
 @Injectable({
   scope: Scope.DEFAULT
@@ -12,7 +16,10 @@ export class TasksService {
 
   private taskList: ITaskModel[] = [];
 
-  constructor() { }
+  constructor(
+    @InjectRepository(TaskRepository)
+    private taskRepository: TaskRepository
+  ) { }
 
   getTasks() {
     return this.taskList;
@@ -33,8 +40,8 @@ export class TasksService {
     return tasks;
   }
 
-  getTask(id: string) {
-    const task = this.taskList.find(task_ => task_.id === id);
+  async getTask(id: number): Promise<TaskEntity> {
+    const task = await this.taskRepository.findOne(id);
     if (task) {
       return task;
     }

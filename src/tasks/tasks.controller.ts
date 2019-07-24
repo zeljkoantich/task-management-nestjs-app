@@ -1,10 +1,11 @@
-import { Controller, Get, Post, Body, Param, Delete, Patch, Query, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Controller, Get, Post, Body, Param, Delete, Patch, Query, UsePipes, ValidationPipe, ParseIntPipe } from "@nestjs/common";
 import { TasksService } from "./tasks.service";
 import { CreateTaskDTO } from "./dto/create-task.dto";
 import { TaskStatuses } from "./task-statuses.enum";
 import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
 import { objectHasKeys } from "../shared/helper-functions";
 import { TaskStatusValidationPipe } from "./pipes/task-status-validation.pipe";
+import { TaskEntity } from "./task.entity";
 
 @Controller({
   path: "tasks"
@@ -27,9 +28,9 @@ export class TasksController {
   }
 
   @Get("/:id")
-  getTask(
-    @Param("id") id: string
-  ) {
+  async getTask(
+    @Param("id", /* ParseIntPipe */) id: number
+  ): Promise<TaskEntity> {
     return this.tasksService.getTask(id);
   }
 
