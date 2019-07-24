@@ -69,18 +69,16 @@ export class TasksService {
   //   return index;
   // }
 
-  // createTask(createTaskDTO: CreateTaskDTO): ITaskModel {
-  //   const { description, title } = createTaskDTO;
-  //   const task: ITaskModel = {
-  //     description,
-  //     title,
-  //     id: uuid(),
-  //     status: TaskStatuses.OPEN
-  //   };
-  //   this.taskList.push(task);
+  async createTask(createTaskDTO: CreateTaskDTO): Promise<TaskEntity> {
+    const { description, title } = createTaskDTO;
+    const task = new TaskEntity();
+    task.description = description;
+    task.title = title;
+    task.status = TaskStatuses.OPEN;
+    const savedTask = await task.save();
 
-  //   return task;
-  // }
+    return savedTask;
+  }
 
   // updateTaskStatus(id: string, status: TaskStatuses) {
   //   const task = this.getTask(id); // throws NotFoundException if no task to update

@@ -36,13 +36,13 @@ export class TasksController {
     return this.tasksService.getTask(id);
   }
 
-  // @Post()
-  // @UsePipes(ValidationPipe)
-  // createTask(
-  //   @Body() createTaskDTO: CreateTaskDTO
-  // ) {
-  //   return this.tasksService.createTask(createTaskDTO);
-  // }
+  @Post()
+  @UsePipes(ValidationPipe)
+  async createTask(
+    @Body() createTaskDTO: CreateTaskDTO
+  ): Promise<TaskEntity> {
+    return this.tasksService.createTask(createTaskDTO);
+  }
 
   // @Patch("/:id/status")
   // updateTaskStatus(
