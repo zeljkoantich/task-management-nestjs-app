@@ -29,7 +29,7 @@ export class TasksController {
 
   @Get("/:id")
   async getTask(
-    @Param("id", /* ParseIntPipe */) id: number
+    @Param("id", ParseIntPipe) id: number
   ): Promise<TaskEntity> {
     return this.tasksService.getTask(id);
   }
