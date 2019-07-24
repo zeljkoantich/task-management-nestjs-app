@@ -92,10 +92,10 @@ Accept: application/json
 // UPDATE TASK STATUS
 //
 ### PATCH /tasks/id/status
-PATCH http://localhost:3000/tasks/02fcfd30-aace-11e9-8e75-a547b78d0f13/status
+PATCH http://localhost:3000/tasks/3/status
 Content-Type: application/json
 
-{ "status": "CLOSEd" }
+{ "status": "IN_PROGRESS" }
 
 # HTTP/1.1 200 OK
 # X-Powered-By: Express
