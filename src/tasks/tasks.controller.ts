@@ -6,6 +6,7 @@ import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
 import { objectHasKeys } from "../shared/helper-functions";
 import { TaskStatusValidationPipe } from "./pipes/task-status-validation.pipe";
 import { Task } from "./task.entity";
+import { DeleteResult } from "typeorm";
 
 @Controller({
   path: "tasks"
@@ -55,7 +56,7 @@ export class TasksController {
   @Delete("/:id")
   async deleteTask(
     @Param("id", ParseIntPipe) id: number
-  ) {
+  ): Promise<DeleteResult> {
     return this.tasksService.deleteTask(id);
   }
 

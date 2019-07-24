@@ -5,6 +5,7 @@ import { TaskStatuses } from "./task-statuses.enum";
 import { TaskRepository } from "./task.repository";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Task } from "./task.entity";
+import { DeleteResult } from "typeorm";
 
 @Injectable({
   scope: Scope.DEFAULT
@@ -78,9 +79,10 @@ export class TasksService {
   //   return task;
   // }
 
-  async deleteTask(id: number) {
-    // throws NotFoundException if no task to delete
-    await this.getTask(id).then(task => this.taskRepository.delete(task.id));
+  async deleteTask(id: number): Promise<DeleteResult> {
+    const findTask = await this.getTask(id); // throws NotFoundException if no task to delete
+
+    return this.taskRepository.delete(findTask.id);
   }
 
 }
