@@ -1,0 +1,15 @@
+# DELETE  http://localhost:3000/tasks/5
+
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 76
+ETag: W/"4c-HvtuHrtjRj6akohHt6UEVid9JXo"
+Date: Wed, 24 Jul 2019 09:09:43 GMT
+Connection: close
+
+{
+  "statusCode": 404,
+  "error": "Not Found",
+  "message": "Task with id: 5 not found"
+}

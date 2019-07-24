@@ -69,7 +69,7 @@ POST http://localhost:3000/tasks
 Content-Type: application/json
 Accept: application/json
 
-{"title": "this should be id: 3", "description": "ddd ddd"}
+{"title": "Should be id: 5", "description": "because task id: 4 is deleted"}
 
 # HTTP/1.1 201 Created
 # X-Powered-By: Express
@@ -117,4 +117,4 @@ Content-Type: application/json
 // DELETE A TASK
 //
 ### DELETE /tasks
-DELETE  http://localhost:3000/tasks/b13faf30-a87d-11e9-bfb1-df58e26acd24
+DELETE  http://localhost:3000/tasks/433
