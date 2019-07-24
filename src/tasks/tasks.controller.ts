@@ -5,7 +5,7 @@ import { TaskStatuses } from "./task-statuses.enum";
 import { GetTasksFilterDTO } from "./dto/get-tasks-filter.dto";
 import { objectHasKeys } from "../shared/helper-functions";
 import { TaskStatusValidationPipe } from "./pipes/task-status-validation.pipe";
-import { TaskEntity } from "./task.entity";
+import { Task } from "./task.entity";
 
 @Controller({
   path: "tasks"
@@ -32,7 +32,7 @@ export class TasksController {
   @Get("/:id")
   async getTask(
     @Param("id", ParseIntPipe) id: number
-  ): Promise<TaskEntity> {
+  ): Promise<Task> {
     return this.tasksService.getTask(id);
   }
 
@@ -40,7 +40,7 @@ export class TasksController {
   @UsePipes(ValidationPipe)
   async createTask(
     @Body() createTaskDTO: CreateTaskDTO
-  ): Promise<TaskEntity> {
+  ): Promise<Task> {
     return this.tasksService.createTask(createTaskDTO);
   }
 
