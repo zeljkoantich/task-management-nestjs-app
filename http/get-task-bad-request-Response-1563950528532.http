@@ -1,0 +1,15 @@
+# GET http://localhost:3000/tasks/111-11sdf3232
+
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 99
+ETag: W/"63-4KMLzidilH1x/dD1VYMsWXwfPKo"
+Date: Wed, 24 Jul 2019 06:41:46 GMT
+Connection: close
+
+{
+  "statusCode": 400,
+  "error": "Bad Request",
+  "message": "Validation failed (numeric string is expected)"
+}

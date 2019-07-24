@@ -43,7 +43,7 @@ GET http://localhost:3000/tasks?status=CLOSEDd
 // GET A TASK BY ID
 //
 ### GET /tasks/id
-GET http://localhost:3000/tasks/c430c330-a879-11e9-a83f-2f717802ed7ed
+GET http://localhost:3000/tasks/10
 
 # HTTP/1.1 200 OK
 # X-Powered-By: Express

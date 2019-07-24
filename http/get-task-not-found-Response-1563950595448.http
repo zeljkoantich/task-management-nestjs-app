@@ -1,0 +1,15 @@
+# GET http://localhost:3000/tasks/10
+
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 77
+ETag: W/"4d-kdZe+kSAaEIxOKiAgFGu/YIjpTQ"
+Date: Wed, 24 Jul 2019 06:43:07 GMT
+Connection: close
+
+{
+  "statusCode": 404,
+  "error": "Not Found",
+  "message": "Task with id: 10 not found"
+}
