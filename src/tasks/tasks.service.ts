@@ -14,31 +14,33 @@ import { TaskEntity } from "./task.entity";
 })
 export class TasksService {
 
-  private taskList: ITaskModel[] = [];
+  // private taskList: ITaskModel[] = [];
 
   constructor(
     @InjectRepository(TaskRepository)
     private taskRepository: TaskRepository
   ) { }
 
-  getTasks() {
-    return this.taskList;
+  async getTasks() {
+    const taskList = await this.taskRepository.find();
+    console.log('taskList', taskList);
+    // return this.taskList;
   }
 
-  getFilteredTasks(getTasksFilterDTO: GetTasksFilterDTO) {
-    const { search, status } = getTasksFilterDTO;
-    let tasks = [ ...this.getTasks() ];
+  // getFilteredTasks(getTasksFilterDTO: GetTasksFilterDTO) {
+  //   const { search, status } = getTasksFilterDTO;
+  //   let tasks = [ ...this.getTasks() ];
 
-    if (status) {
-      tasks = tasks.filter(task => task.status === status);
-    }
+  //   if (status) {
+  //     tasks = tasks.filter(task => task.status === status);
+  //   }
 
-    if (search) {
-      tasks = tasks.filter(task => task.title.includes(search)); // filter tasks by title
-    }
+  //   if (search) {
+  //     tasks = tasks.filter(task => task.title.includes(search)); // filter tasks by title
+  //   }
 
-    return tasks;
-  }
+  //   return tasks;
+  // }
 
   async getTask(id: number): Promise<TaskEntity> {
     const task = await this.taskRepository.findOne(id);
@@ -49,49 +51,49 @@ export class TasksService {
     throw new NotFoundException(`Task with id: ${id} not found`);
   }
 
-  private getTaskIndex(id: string) {
-    let index: number;
-    this.taskList.find((task, index_): boolean => {
-      if (task.id === id) {
-        index = index_;
-        return true; // callback return a boolean: src/tasks/tasks.service.ts(49,24): error TS2345
-        /*
-         Argument of type '(this: void, task: ITaskModel, index_: number) => void' is not
-         assignable to parameter of type '(value: ITaskModel, index: number, obj: ITaskModel[]) =>
-         boolean'.
-         Type 'void' is not assignable to type 'boolean'.
-        */
-      }
-    });
+  // private getTaskIndex(id: string) {
+  //   let index: number;
+  //   this.taskList.find((task, index_): boolean => {
+  //     if (task.id === id) {
+  //       index = index_;
+  //       return true; // callback return a boolean: src/tasks/tasks.service.ts(49,24): error TS2345
+  //       /*
+  //        Argument of type '(this: void, task: ITaskModel, index_: number) => void' is not
+  //        assignable to parameter of type '(value: ITaskModel, index: number, obj: ITaskModel[]) =>
+  //        boolean'.
+  //        Type 'void' is not assignable to type 'boolean'.
+  //       */
+  //     }
+  //   });
 
-    return index;
-  }
+  //   return index;
+  // }
 
-  createTask(createTaskDTO: CreateTaskDTO): ITaskModel {
-    const { description, title } = createTaskDTO;
-    const task: ITaskModel = {
-      description,
-      title,
-      id: uuid(),
-      status: TaskStatuses.OPEN
-    };
-    this.taskList.push(task);
+  // createTask(createTaskDTO: CreateTaskDTO): ITaskModel {
+  //   const { description, title } = createTaskDTO;
+  //   const task: ITaskModel = {
+  //     description,
+  //     title,
+  //     id: uuid(),
+  //     status: TaskStatuses.OPEN
+  //   };
+  //   this.taskList.push(task);
 
-    return task;
-  }
+  //   return task;
+  // }
 
-  updateTaskStatus(id: string, status: TaskStatuses) {
-    const task = this.getTask(id); // throws NotFoundException if no task to update
-    task.status = status;
-    this.taskList[this.getTaskIndex(task.id)] = task; // update task list
+  // updateTaskStatus(id: string, status: TaskStatuses) {
+  //   const task = this.getTask(id); // throws NotFoundException if no task to update
+  //   task.status = status;
+  //   this.taskList[this.getTaskIndex(task.id)] = task; // update task list
 
-    return task;
-  }
+  //   return task;
+  // }
 
-  deleteTask(id: string): void {
-    const task = this.getTask(id); // throws NotFoundException if no task to delete
-    const taskIndex = this.getTaskIndex[task.id];
-    this.taskList.splice(taskIndex, 1); // remove deleted item from task list
-  }
+  // deleteTask(id: string): void {
+  //   const task = this.getTask(id); // throws NotFoundException if no task to delete
+  //   const taskIndex = this.getTaskIndex[task.id];
+  //   this.taskList.splice(taskIndex, 1); // remove deleted item from task list
+  // }
 
 }

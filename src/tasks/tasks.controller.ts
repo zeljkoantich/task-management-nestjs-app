@@ -16,16 +16,18 @@ export class TasksController {
     private tasksService: TasksService
   ) { }
 
-  @Get()
-  getTasks(
-    @Query(ValidationPipe) getTasksFilterDTO: GetTasksFilterDTO
-  ) {
-    if (objectHasKeys(getTasksFilterDTO)) {
-      return this.tasksService.getFilteredTasks(getTasksFilterDTO);
-    }
+  // @Get()
+  // getTasks(
+  //   @Query(ValidationPipe) getTasksFilterDTO: GetTasksFilterDTO
+  // ) {
+  //   if (objectHasKeys(getTasksFilterDTO)) {
+  //     // return this.tasksService.getFilteredTasks(getTasksFilterDTO);
+  //     return this.tasksService.getTasks();
 
-    return this.tasksService.getTasks();
-  }
+  //   }
+
+  //   return this.tasksService.getTasks();
+  // }
 
   @Get("/:id")
   async getTask(
@@ -34,27 +36,27 @@ export class TasksController {
     return this.tasksService.getTask(id);
   }
 
-  @Post()
-  @UsePipes(ValidationPipe)
-  createTask(
-    @Body() createTaskDTO: CreateTaskDTO
-  ) {
-    return this.tasksService.createTask(createTaskDTO);
-  }
+  // @Post()
+  // @UsePipes(ValidationPipe)
+  // createTask(
+  //   @Body() createTaskDTO: CreateTaskDTO
+  // ) {
+  //   return this.tasksService.createTask(createTaskDTO);
+  // }
 
-  @Patch("/:id/status")
-  updateTaskStatus(
-    @Param("id") id: string,
-    @Body("status", TaskStatusValidationPipe) status: TaskStatuses,
-  ) {
-    return this.tasksService.updateTaskStatus(id, status);
-  }
+  // @Patch("/:id/status")
+  // updateTaskStatus(
+  //   @Param("id") id: string,
+  //   @Body("status", TaskStatusValidationPipe) status: TaskStatuses,
+  // ) {
+  //   return this.tasksService.updateTaskStatus(id, status);
+  // }
 
-  @Delete("/:id")
-  deleteTask(
-    @Param("id") id: string
-  ): void {
-    this.tasksService.deleteTask(id);
-  }
+  // @Delete("/:id")
+  // deleteTask(
+  //   @Param("id") id: string
+  // ): void {
+  //   this.tasksService.deleteTask(id);
+  // }
 
 }
