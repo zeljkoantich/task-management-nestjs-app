@@ -93,46 +93,8 @@
 
   Endpoint                   Method          Description
 ----------------------------------------------------------------------------
-| /auth/signup               POST            Sign up                       |
-| /auth/signin               POST            Sign in                       |
+| /auth/login                POST            Login                         |
+| /auth/register             POST            Register                      |
 ----------------------------------------------------------------------------
 
 ```
-
-<br>
-
-## NestJS CLI - create app
-
-    nest new task-management
-    🚀  Successfully created project task-management
-    👉  Get started with the following commands:
-
-    $ cd task-management
-    $ npm run start
-
-
-- Running the app
-
-  ```bash
-  # development
-  $ npm run start
-
-  # watch mode
-  $ npm run start:dev
-
-  # production mode
-  $ npm run start:prod
-  ```
-
-- Test
-
-  ```bash
-  # unit tests
-  $ npm run test
-
-  # e2e tests
-  $ npm run test:e2e
-
-  # test coverage
-  $ npm run test:cov
-  ```
