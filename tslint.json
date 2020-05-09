@@ -1,6 +1,6 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended"],
+  "extends": ["tslint:recommended", "tslint-eslint-rules"],
   "jsRules": {
     "no-unused-expression": true
   },
@@ -56,7 +56,9 @@
     "triple-equals": true,
     "trailing-comma": false,
     "no-console": false,
-    "variable-name": false
+    "variable-name": false,
+
+    "no-multi-spaces": true
   },
   "rulesDirectory": []
 }
